@@ -1,0 +1,112 @@
+<!DOCTYPE html>     <!--menandai awal dan akhir halamn web-->
+<html lang="en">    <!--memberi tahu browser semua konten di hlmn adlh b.iggris -->
+<head>               <!--Tag untuk membuat informasi tentang dokumen-->
+   <style>
+      *{
+         padding: 0;  /*mengatur ukuran gambar atau teks*/
+         margin: 0;   /*mengatur jarak pada elemen*/
+         font-family: 'poppins', sans-serif;    /*menentukan jenis font*/
+      }
+      body{
+         background-color: #055745;
+         display: grid;   /*menentukan jenis font*/
+         height: 100vh;   /*mengatur tinggi table dan baris*/
+         place-items: center;   /*mengatur tata letak kisi*/
+      }
+      .main{
+         width: 400px;    /*mengatur lebar dan tinggi*/
+         height: 450px;
+         background-color: rgb(39, 3, 3);
+         position: absolute;  /*mengatur posisi sebuah element*/
+         border: 5px solid black; /*mengatur warna*/
+         border-radius: 6px;     /*mengatur batas bulat*/
+      }
+      .main input[type='text'] {
+         width: 88%;
+         position: relative;
+         height: 80px;
+         top: 5px;   /*mengatur tepi atas elemen bergerak*/
+         text-align: right;  /*mengatur teks*/
+         padding: 3px 6px;  /*mengatur ukuran gambar atau teks*/
+         outline: none;     /* menambahkan garis di sekitar elemen*/
+         font-size: 40px;   /*mengubah besar ukuran di sebuah font*/
+         border: 5px solid black;
+         display: flex;     /*mengubah tampilan elemen*/
+         margin: auto;
+         border-radius: 6px;
+         color: black;
+      }
+      .btn input[type='button']{
+         width:90px;     /*mengatur lebar halamn*/
+         padding: 2px;    /*mengatur ukuran gambar atau teks*/
+         margin: 2px 0px;
+         position: relative;
+         left: 13px;      /*mengatur tepi kiri suatu elemen*/
+         top: 20px;      /*mengatur tepi atas */
+         height: 60px;    /*mengatur tinggi hlaman*/
+         cursor: pointer;   /*mendefinikasikan tipe cursor*/
+         font-size: 18px;    /*mengubah besar ukuran di sebuah font*/
+         transition: 0.5s;     /*memanipulasi property atau nilai value*/
+         background-color: #496861;
+         border-radius: 6px;
+         color: white;
+      }
+      .btn input[type='button']:hover{
+         background-color: black;
+         color: white;
+      }
+   </style>
+   <script>
+      function Solve(val) {      /*menerima dan mengembalikan nilai*/
+         var v = document.getElementById('res');    /*menyisipkan nilai properti khusus*/
+         v.value += val;     /*optimal nilai fallback*/ 
+      }
+      function Result() {     /*menerima dan mrngembalikan nilai*/
+         var num1 = document.getElementById('res').value;    /*menyisipkan nilai properti khusus*/
+         var num2 = eval(num1);
+         document.getElementById('res').value = num2;
+      }
+      function Clear() {      /*membersikan nilai*/
+         var inp = document.getElementById('res');
+         inp.value = '';
+      }
+      function Back() {
+         var ev = document.getElementById('res');   /*memindahkan elemen pd html*/
+         ev.value = ev.value.slice(0,-1);
+      }
+   </script>
+   <title>Calulator</title>    <!--judul-->
+</head>   <!--Tag untuk membuat informasi tentang dokumen-->
+<body>     <!--menunjukan konten sebuah dokument-->
+   <div class="main">   <!--mengelompokan elemen-->
+      <input type="text" id = 'res'>   <!--kolom isian dari user-->
+      <div class="btn">
+         <input type="button" value = 'C' onclick = "Clear()">
+         <input type="button" value = '%' onclick = "Solve('%')">
+         <input type="button" value = '←' onclick ="Back('←')">
+         <input type="button" value = '/' onclick = "Solve('/')">
+         <br>
+         <input type="button" value = '7' onclick = "Solve('7')">
+         <input type="button" value = '8' onclick = "Solve('8')">
+         <input type="button" value = '9' onclick = "Solve('9')">
+         <input type="button" value = 'x' onclick = "Solve('*')">
+         <br>
+         <input type="button" value = '4' onclick = "Solve('4')">
+         <input type="button" value = '5' onclick = "Solve('5')">
+         <input type="button" value = '6' onclick = "Solve('6')">
+         <input type="button" value = '-' onclick = "Solve('-')">
+         <br>
+         <input type="button" value = '1' onclick = "Solve('1')">
+         <input type="button" value = '2' onclick = "Solve('2')">
+         <input type="button" value = '3' onclick = "Solve('3')">
+         <input type="button" value = '+' onclick = "Solve('+')">
+         <br>
+         <input type="button" value = '00'onclick = "Solve('00')">
+         <input type="button" value = '0' onclick = "Solve('0')">
+         <input type="button" value = '.' onclick = "Solve('.')">
+         <input type="button" value = '=' onclick = "Result()">
+      </div>
+   </div>
+   <script src = 'Calc.js' ></script>    <!--menambah kode javascript-->
+</body>
+</html>  
